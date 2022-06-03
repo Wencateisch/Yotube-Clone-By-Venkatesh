@@ -20,21 +20,20 @@ let div = document.getElementById("videodiv");
 
 
 
-async function display(){
+async function display() {
 
     // q = Popular Videos --> Popular%20Videos (%20 -> Space)
 
-    let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=latest%20movie%20trailers&key=AIzaSyDC-ej1rqEn_Ia92E1g3MyK-eJACxNTMFU&maxResults=25`);
+    let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=thalapathy%20beast%20videos&key=AIzaSyDC-ej1rqEn_Ia92E1g3MyK-eJACxNTMFU&maxResults=25`);
 
     let data = await res.json();
-    
-    for({id:{videoId}}of data.items)
-    {
-    let videodiv= document.createElement("iframe")
-    videodiv.setAttribute("class","mons")
-    videodiv.src = `https://www.youtube.com/embed/${videoId}`;
-    videodiv.allow = 'fullscreen'
-    div.append(videodiv)
+
+    for ({ id: { videoId } } of data.items) {
+        let videodiv = document.createElement("iframe")
+        videodiv.setAttribute("class", "mons")
+        videodiv.src = `https://www.youtube.com/embed/${videoId}`;
+        videodiv.allow = 'fullscreen'
+        div.append(videodiv)
     }
 
 }
@@ -46,22 +45,21 @@ display();
 
 // (2) Search When Something is typed in the search-box
 
-async function searchVideos(){
-    document.getElementById("videodiv").innerHTML=""; // Empty 
+async function searchVideos() {
+    document.getElementById("videodiv").innerHTML = ""; // Empty 
 
     let query = document.getElementById("video").value; // Search String/ Query String
 
-//search for videos
-let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&type=video&key=AIzaSyDC-ej1rqEn_Ia92E1g3MyK-eJACxNTMFU&maxResults=25`);
-let data = await res.json();
+    //search for videos
+    let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${query}&type=video&key=AIzaSyDC-ej1rqEn_Ia92E1g3MyK-eJACxNTMFU&maxResults=25`);
+    let data = await res.json();
 
-for({id:{videoId}}of data.items)
-{
-let videodiv= document.createElement("iframe")
-videodiv.setAttribute("class","mons")
-videodiv.src = `https://www.youtube.com/embed/${videoId}`;
-videodiv.allow = 'fullscreen'
-div.append(videodiv)
-}
+    for ({ id: { videoId } } of data.items) {
+        let videodiv = document.createElement("iframe")
+        videodiv.setAttribute("class", "mons")
+        videodiv.src = `https://www.youtube.com/embed/${videoId}`;
+        videodiv.allow = 'fullscreen'
+        div.append(videodiv)
+    }
 
 }
