@@ -24,7 +24,7 @@ async function display(){
 
     // q = Popular Videos --> Popular%20Videos (%20 -> Space)
 
-    let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=thalapathy%20beast%20videos&key=AIzaSyCeAdAN7ON2Mjv8K0dCraThekF9U6KVkvI&maxResults=25`);
+    let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=trending%20videos&key=AIzaSyDC-ej1rqEn_Ia92E1g3MyK-eJACxNTMFU&maxResults=25`);
 
     let data = await res.json();
     
