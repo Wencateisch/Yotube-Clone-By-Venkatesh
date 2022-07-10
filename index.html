@@ -19,7 +19,7 @@
         
         <div id="logo">
             <i class="fas fa-bars"></i>
-            <img src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6-1200-80.jpg" alt="">
+            <img src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6-1200-80.jpg" onclick="HomeButton()" alt="YouTube">
         </div>
         
         <div id="center">
@@ -36,7 +36,14 @@
         <div id="end">
         <i onclick="AllowMic()" class="fas fa-microphone"></i>
         <i onclick="AllowCam()" class="fas fa-video"></i>
-        <i class="fas fa-th"></i>
+        <i id="menu" onclick="toggleMenu()" class="fas fa-th">
+            <ul id="menu-box" style="display: none">
+              <li><a class="hidden" href="index.html">YouTube TV</a></li>
+              <li><a class="hidden" href="animal.html">YouTube Music</a></li>
+              <li><a class="hidden" href="pictures.html">YouTube Kids</a></li>
+              <li><a class="hidden" href="pictures.html">YouTube for Artists</a></li>
+            </ul>
+        </i>
         <i class="fas fa-bell"></i>
         <i class="fas fa-user-circle"></i>
         </div>

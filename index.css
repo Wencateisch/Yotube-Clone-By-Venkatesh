@@ -66,6 +66,26 @@ body{
     height:  250px;
     margin: 20px;
 }
+ul li{
+    list-style-type: none;
+}
+.hidden{
+    text-decoration: none;
+    color: aliceblue;
+    background-color: rgba(35,35,34);
+}
+#menu{
+    position: relative;
+    box-sizing: border-box;
+}
+#menu-box{
+    height: max-content;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-left: -100px;
+}
 @media screen and (max-width: 620px) {
    #end i,#logo i{
        display: none;

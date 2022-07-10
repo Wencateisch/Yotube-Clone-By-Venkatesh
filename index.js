@@ -24,7 +24,7 @@ async function display() {
 
     // q = Popular Videos --> Popular%20Videos (%20 -> Space)
 
-    let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=thalapathy%20beast%20videos&key=AIzaSyDC-ej1rqEn_Ia92E1g3MyK-eJACxNTMFU&maxResults=25`);
+    let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=artificial%20intelligence&key=AIzaSyDC-ej1rqEn_Ia92E1g3MyK-eJACxNTMFU&maxResults=25`);
 
     let data = await res.json();
 
@@ -39,7 +39,11 @@ async function display() {
 }
 
 display();
-
+let videoIn = document.getElementById("video");
+videoIn.addEventListener("keydown",(function(event){
+  if (event.key === "Enter") {
+      searchVideos();
+  }}))
 
 
 
@@ -61,6 +65,24 @@ async function searchVideos() {
         videodiv.allow = 'fullscreen'
         div.append(videodiv)
     }
+  }
+    async function HomeButton() {
+      document.getElementById("videodiv").innerHTML = ""; // Empty 
+  
+      let query = document.getElementById("video").value; // Search String/ Query String
+  
+      //search for videos
+      let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=artificial%20intelligence&type=video&key=AIzaSyDC-ej1rqEn_Ia92E1g3MyK-eJACxNTMFU&maxResults=25`);
+      let data = await res.json();
+  
+      for ({ id: { videoId } } of data.items) {
+          let videodiv = document.createElement("iframe")
+          videodiv.setAttribute("class", "mons")
+          videodiv.src = `https://www.youtube.com/embed/${videoId}`;
+          videodiv.allow = 'fullscreen'
+          div.append(videodiv)
+          video.value = '';
+      }
 
 }
 
@@ -76,9 +98,18 @@ function AllowMic(){
 function AllowCam(){
     navigator.mediaDevices.getUserMedia({ video: true })
       .then(function(stream) {
-        console.log('You let me use your mic!')
+        console.log('You let me use your camera!')
       })
       .catch(function(err) {
-        console.log('No mic for you!')
+        console.log('No camera for you!')
       });
+}
+function toggleMenu() {
+  var menuBox = document.getElementById('menu-box');    
+  if(menuBox.style.display == "block") { // if is menuBox displayed, hide it
+    menuBox.style.display = "none";
+  }
+  else { // if is menuBox hidden, display it
+    menuBox.style.display = "block";
+  }
 }
